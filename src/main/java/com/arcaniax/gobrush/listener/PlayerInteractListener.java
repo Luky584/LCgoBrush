@@ -64,22 +64,22 @@ import java.util.Random;
  */
 public class PlayerInteractListener implements Listener {
 
-    private static final String PREFIX = "&bgoBrush> ";
+    private static final String PREFIX = "&bLCBrush> ";
     private static final String PERMISSION_BYPASS_WORLD = "gobrush.bypass.world";
     private static final String PERMISSION_USE = "gobrush.use";
 
     @EventHandler
     public void onClickEvent(final PlayerInteractEvent event) {
         final Player player = event.getPlayer();
-        final boolean holdingFlint = player.getInventory().getItemInMainHand().getType() == Material.FLINT;
+        final boolean holdingCLAY_BALL = player.getInventory().getItemInMainHand().getType() == Material.CLAY_BALL;
 
-        if (!holdingFlint) {
+        if (!holdingCLAY_BALL) {
             return;
         }
         if (!player.hasPermission(PERMISSION_USE)) {
             return;
         }
-        if (event.getPlayer().getInventory().getItemInMainHand().getType() == XMaterial.FLINT.parseMaterial()
+        if (event.getPlayer().getInventory().getItemInMainHand().getType() == XMaterial.CLAY_BALL.parseMaterial()
                 && ((event.getAction().equals(Action.RIGHT_CLICK_AIR))
                 || (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)))) {
             BrushPlayer brushPlayer = Session.getBrushPlayer(player.getUniqueId());
@@ -90,7 +90,7 @@ public class PlayerInteractListener implements Listener {
             if (!(brushPlayer.isBrushEnabled())) {
                 player.sendMessage(ChatColor.translateAlternateColorCodes(
                         '&',
-                        PREFIX + "&cYour brush is disabled, left click to enable the brush or type &f/gb toggle&c."
+                        PREFIX + "&cSuperBrush máš vypnutý. Zapneš jej levým kliknutím nebo příkazem /superbrush toggle."
                 ));
                 return;
             }
@@ -382,7 +382,7 @@ public class PlayerInteractListener implements Listener {
                     }
                 }
             });
-        } else if ((event.getPlayer().getInventory().getItemInMainHand().getType() == XMaterial.FLINT.parseMaterial())
+        } else if ((event.getPlayer().getInventory().getItemInMainHand().getType() == XMaterial.CLAY_BALL.parseMaterial())
                 && ((event.getAction().equals(Action.LEFT_CLICK_AIR))
                 || (event.getAction().equals(Action.LEFT_CLICK_BLOCK)))) {
             event.setCancelled(true);

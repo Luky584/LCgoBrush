@@ -45,7 +45,7 @@ import java.util.logging.Level;
 
 public class CommandHandler implements CommandExecutor {
 
-    private static final String prefix = "&bgoBrush> ";
+    private static final String prefix = "&bSuperBrush> ";
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

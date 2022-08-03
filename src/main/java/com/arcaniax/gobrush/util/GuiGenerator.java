@@ -45,7 +45,7 @@ import java.util.List;
  */
 public class GuiGenerator {
 
-    private static final String MAIN_MENU_INVENTORY_TITLE = "&1goBrush Menu";
+    private static final String MAIN_MENU_INVENTORY_TITLE = "&1LukyCraft SuperBrush Menu";
     private static final ItemStack GRAY_GLASS_PANE = createItem(
             XMaterial.GRAY_STAINED_GLASS_PANE.parseMaterial(),
             (short) XMaterial.GRAY_STAINED_GLASS_PANE.data,
@@ -98,16 +98,17 @@ public class GuiGenerator {
                 11,
                 createItem(XMaterial.BROWN_MUSHROOM.parseMaterial(),
                         (short) 0,
-                        "&6Size: &e" + brushPlayer.getBrushSize(),
-                        "&63D Size: &e" + (double) brushPlayer.getBrushSize() / 4.0 + "___&3___&7Left click to increase&3___&7Right click to decrease___&7Shift click to change by 10"
+                        "&6Velikost: &e" + brushPlayer.getBrushSize(),
+                        "&63D Velikost: &e" + (double) brushPlayer.getBrushSize() / 4.0 + "___&3___&7Levým kliknutím " +
+                                "zvýšíš&3___&7Pravým kliknutím snížíš___&7Shift click pro změnu o 10"
                 )
         );
         mainMenu.setItem(
                 12,
                 createItem(XMaterial.BLAZE_POWDER.parseMaterial(),
                         (short) 0,
-                        "&6Intensity: &e" + brushPlayer.getBrushIntensity(),
-                        "&3___&7Left click to increase&3___&7Right click to decrease"
+                        "&6Intenzita: &e" + brushPlayer.getBrushIntensity(),
+                        "&3___&7Levým kliknutím zvýšíš&3___&7Pravým kliknutím snížíš"
                 )
         );
         if (brushPlayer.getBrushSize() > brushPlayer.getMaxBrushSize()) {
@@ -129,8 +130,8 @@ public class GuiGenerator {
                     10,
                     createItem(XMaterial.WRITABLE_BOOK.parseMaterial(),
                             (short) 0,
-                            "&6Selected Brush: &e" + brushPlayer.getBrush().getName(),
-                            "&a&lEnabled___&7___&7Left click to change brush___&7Right click to toggle"
+                            "&6Vybraný Brush: &e" + brushPlayer.getBrush().getName(),
+                            "&a&lZapnuto___&7___&7Klikni levým pro změnu brushe___&7Klikni pravým pro přepnutí."
                     )
             );
             mainMenu.setItem(1, GREEN_GLASS_PANE);
@@ -140,28 +141,28 @@ public class GuiGenerator {
                     10,
                     createItem(XMaterial.WRITABLE_BOOK.parseMaterial(),
                             (short) 0,
-                            "&6Selected Brush: &e" + brushPlayer.getBrush().getName(),
-                            "&c&lDisabled___&7___&7Left click to change brush___&7Right click to toggle"
+                            "&6Vybraný Brush: &e" + brushPlayer.getBrush().getName(),
+                            "&c&lVypnuto___&7___&7Klikni levým pro změnu brushe___&7Klikni pravým pro přepnutí."
                     )
             );
             mainMenu.setItem(1, RED_GLASS_PANE);
             mainMenu.setItem(19, RED_GLASS_PANE);
         }
         if (brushPlayer.isDirectionMode()) {
-            mainMenu.setItem(13, HeadURL.create(HeadURL.upB64, "&6Pull Mode", "&7Click to change"));
+            mainMenu.setItem(13, HeadURL.create(HeadURL.upB64, "&6Mód Táhnout", "&7Klikni pro přepnutí."));
             mainMenu.setItem(4, ORANGE_GLASS_PANE);
             mainMenu.setItem(22, ORANGE_GLASS_PANE);
         } else {
-            mainMenu.setItem(13, HeadURL.create(HeadURL.downB64, "&6Push Mode", "&7Click to change"));
+            mainMenu.setItem(13, HeadURL.create(HeadURL.downB64, "&6Mód Tlačit", "&7Klikni pro přepnutí."));
             mainMenu.setItem(4, ORANGE_GLASS_PANE);
             mainMenu.setItem(22, ORANGE_GLASS_PANE);
         }
         if (brushPlayer.is3DMode()) {
-            mainMenu.setItem(14, HeadURL.create(HeadURL._3DB64, "&63D Mode", "&a&lEnabled___&7___&7Click to toggle"));
+            mainMenu.setItem(14, HeadURL.create(HeadURL._3DB64, "&63D Mód", "&a&lZapnuto___&7___&7Klikni pro přepnutí."));
             mainMenu.setItem(5, GREEN_GLASS_PANE);
             mainMenu.setItem(23, GREEN_GLASS_PANE);
         } else {
-            mainMenu.setItem(14, HeadURL.create(HeadURL._3DB64, "&63D Mode", "&c&lDisabled___&7___&7Click to toggle"));
+            mainMenu.setItem(14, HeadURL.create(HeadURL._3DB64, "&63D Mód", "&c&lVypnuto___&7___&7Klikni pro přepnutí."));
             mainMenu.setItem(5, RED_GLASS_PANE);
             mainMenu.setItem(23, RED_GLASS_PANE);
         }
@@ -170,8 +171,8 @@ public class GuiGenerator {
                     15,
                     createItem(XMaterial.HEAVY_WEIGHTED_PRESSURE_PLATE.parseMaterial(),
                             (short) 0,
-                            "&6Flat Mode",
-                            "&a&lEnabled___&7___&7Click to toggle"
+                            "&6Plochý Mód",
+                            "&a&lPovolen___&7___&7Klikni pro přepnutí."
                     )
             );
             mainMenu.setItem(6, GREEN_GLASS_PANE);
@@ -181,8 +182,8 @@ public class GuiGenerator {
                     15,
                     createItem(XMaterial.HEAVY_WEIGHTED_PRESSURE_PLATE.parseMaterial(),
                             (short) 0,
-                            "&6Flat Mode",
-                            "&c&lDisabled___&7___&7Click to toggle"
+                            "&6Plochý Mód",
+                            "&c&lVypnutý___&7___&7Klikni pro přepnutí."
                     )
             );
             mainMenu.setItem(6, RED_GLASS_PANE);
@@ -194,8 +195,8 @@ public class GuiGenerator {
                     16,
                     createItem(XMaterial.COMPASS.parseMaterial(),
                             (short) 0,
-                            "&6Auto Rotation",
-                            "&a&lEnabled___&7___&7Click to toggle"
+                            "&6Automatické Otočení",
+                            "&a&lZapnuto___&7___&7Klikni pro přepnutí."
                     )
             );
             mainMenu.setItem(7, GREEN_GLASS_PANE);
@@ -205,8 +206,8 @@ public class GuiGenerator {
                     16,
                     createItem(XMaterial.COMPASS.parseMaterial(),
                             (short) 0,
-                            "&6Auto Rotation",
-                            "&c&lDisabled___&7___&7Click to toggle"
+                            "&6Automatické Otočení",
+                            "&c&lVypnuto___&7___&7Klikni pro přepnutí."
                     )
             );
             mainMenu.setItem(7, RED_GLASS_PANE);

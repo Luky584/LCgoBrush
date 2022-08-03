@@ -54,7 +54,7 @@ import java.util.stream.IntStream;
 public class BrushPage {
 
     /* Attributes */
-    private static final String BRUSH_MENU_INVENTORY_TITLE = "&1goBrush Brushes";
+    private static final String BRUSH_MENU_INVENTORY_TITLE = "&1LukyCraft SuperBrush Brushe";
     private static final ItemStack GRAY_GLASS_PANE = createItem(
             XMaterial.GRAY_STAINED_GLASS_PANE.parseMaterial(),
             (short) XMaterial.GRAY_STAINED_GLASS_PANE.data,
